@@ -1,0 +1,25 @@
+import java.util.*;
+class compute
+{
+	long calculate(int x)
+	{
+		if (x==0)
+		{
+			return 1;
+		}
+		return x*calculate(x-1);
+	}
+}
+public class C_N_M
+{
+	public static void main(String args[])
+	{
+		compute c=new compute();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("請輸入兩個數字(n,m):");
+		int n=sc.nextInt();
+		int m=sc.nextInt();
+		long k=c.calculate(n)/(c.calculate(n-m)*c.calculate(m));
+		System.out.println("有"+n+"個取"+m+"個有幾種取法:有"+k+"種");
+	}
+}

@@ -1,0 +1,27 @@
+import java.util.*;
+class compute
+{
+	int calculate(int n)
+	{
+		if (n<=2)
+		{
+			return 1;
+		}
+		return calculate(n-1)+calculate(n-2);
+	}
+}
+public class fibonacci
+{
+	public static void main(String args[])
+	{
+		compute c=new compute();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("請輸入任意正整數n:");
+		int n=sc.nextInt();
+		System.out.print("到"+n+"之Fibonacci數列為:");
+		for (int i=1;i<=n;i++)
+		{
+			System.out.print(c.calculate(i)+"\t");
+		}
+	}
+}

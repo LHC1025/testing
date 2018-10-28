@@ -1,0 +1,24 @@
+import java.util.*;
+class compute
+{
+	long calculate(int x,int y)
+	{
+		if (x%y==0)
+		{
+			return y;
+		}
+		return calculate(y,x%y);
+	}
+}
+public class GCD
+{
+	public static void main(String args[])
+	{
+		compute gcd=new compute();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("請輸入2個數:");
+		int i=sc.nextInt();
+		int j=sc.nextInt();
+		System.out.println("最大公因數為:"+gcd.calculate(i,j));
+	}
+}

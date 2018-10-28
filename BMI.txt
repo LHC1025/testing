@@ -1,0 +1,46 @@
+import java.util.*;
+class BMI_calculate
+{
+	double hight;
+	double weight;
+	double bmi;
+	void calculate(double h, double w)
+	{
+		hight=h;
+		weight=w;
+		bmi=weight/((hight/100)*(hight/100));
+	}
+	void show()
+	{
+		if (bmi>24)
+		{
+			System.out.println("你的BMI是:"+bmi);
+			System.out.println("過重!");
+		}
+		else if(bmi>=18.5)
+		{
+			System.out.println("你的BMI是:"+bmi);
+			System.out.println("正常!");
+		}
+		else
+		{
+			System.out.println("你的BMI是:"+bmi);
+			System.out.println("過輕!");
+		}
+	}
+}
+public class BMI
+{
+	public static void main(String args[])
+	{
+		BMI_calculate cal=new BMI_calculate();
+		Scanner sc=new Scanner(System.in);
+		double i;
+		double j;
+		System.out.println("BMI計算系統!請輸入身高體重:");
+		i=sc.nextDouble();
+		j=sc.nextDouble();
+		cal.calculate(i, j);
+		cal.show();
+	}
+}

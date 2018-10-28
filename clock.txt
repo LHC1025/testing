@@ -1,0 +1,164 @@
+import java.util.*;
+
+class time
+{
+	int hour;
+	int min;
+	int sec;
+	
+	void setTime(int i,int j,int k)
+	{
+		hour=i;
+		min=j;
+		sec=k;
+	}
+	
+	void showTime24()
+	{
+		System.out.println("現在時間是:"+hour+"點"+min+"分"+sec+"秒");
+	}
+	
+	void showTime12()
+	{
+		if (hour<=24 && hour>12)
+		{
+			int newhour=hour-12;		//這邊要另一個新的newhour，否則hour會被整個取代掉
+			System.out.println("現在時間是:下午"+newhour+"點"+min+"分"+sec+"秒");	
+		}
+		else
+		{
+			System.out.println("現在時間是:上午"+hour+"點"+min+"分"+sec+"秒");
+		}
+	}
+	
+	void passTime(int x,int y,int z)
+	{
+		hour+=x;
+		min+=y;
+		sec+=z;
+		
+		if(sec>=60)
+		{
+			sec=sec-60;
+			min++;
+			if(min>=60)
+			{
+				min=min-60;
+				hour++;
+				if(hour>=24)
+				{
+					hour=hour-24;
+				}
+				else
+				{
+					hour=hour;
+				}
+			}
+			else
+			{
+				min=min;
+				if(hour>=24)
+				{
+					hour=hour-24;
+				}
+				else
+				{
+					hour=hour;
+				}
+			}
+		}
+		else
+		{
+			sec=sec;
+			if(min>=60)
+			{
+				min=min-60;
+				hour++;
+				if(hour>=24)
+				{
+					hour=hour-24;
+				}
+				else
+				{
+					hour=hour;
+				}
+			}
+			else
+			{
+				min=min;
+				if(hour>=24)
+				{
+					hour=hour-24;
+				}
+				else
+				{
+					hour=hour;
+				}
+			}
+		}
+	}
+	
+	void copyTime(time t)					//call by reference
+	{
+		hour=t.hour;
+		min=t.min;
+		sec=t.sec;
+	}
+	
+	void reset()
+	{
+		hour=0;
+		min=0;
+		sec=0;
+	}
+}
+
+public class clock 
+{
+	public static void main(String args[])
+	{
+		time mytime=new time();
+		int[] i=new int[3];
+		int[] j=new int[3];
+		Scanner sc=new Scanner(System.in);
+		
+		System.out.println("請輸入現在時間(時:分:秒):");
+		for(int x=0;x<i.length;x++)
+		{
+			i[x]=sc.nextInt();
+		}
+		mytime.setTime(i[0],i[1],i[2]);
+		mytime.showTime24();
+		System.out.println("切換成12小時制!");
+		mytime.showTime12();
+		
+		System.out.println("經過一段時間後(請輸入時:分:秒):");
+		for(int y=0;y<i.length;y++)
+		{
+			j[y]=sc.nextInt();
+		}
+		mytime.passTime(j[0],j[1],j[2]);
+		mytime.showTime24();
+		System.out.println("切換成12小時制!");
+		mytime.showTime12();
+		
+		System.out.println("複製時間!");
+		time mytime2=new time();
+		mytime2.copyTime(mytime);
+		mytime2.showTime24();
+		System.out.println("切換成12小時制!");
+		mytime2.showTime12();
+		
+		System.out.println("若要將時間規零，請輸入0:");
+		int k=sc.nextInt();
+		if (k==0)
+		{
+			mytime.reset();
+			mytime.showTime12();
+		}
+		else
+		{
+			mytime.showTime12();
+		}
+	}
+}

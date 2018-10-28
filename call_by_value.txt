@@ -1,0 +1,20 @@
+public class call_by_value
+{
+	//call by value:僅用i套入一組void去執行void，更改的僅void內的值，而不會更改到原本的值
+	public static void main(String args[])
+	{
+		call_by_value v=new call_by_value();
+		int i=20;
+		System.out.println("Before call by value, i="+i);
+		v.value_change(i);
+		System.out.println("After call by value, i="+i);
+	}
+	
+	void value_change(int x)
+	{
+		System.out.println("Call by value x="+x);
+		System.out.println("Call by value...");
+		x++;
+		System.out.println("New value is x++="+x);	
+	}
+}

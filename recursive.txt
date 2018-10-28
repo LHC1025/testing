@@ -1,0 +1,38 @@
+import java.util.*;
+class exponential							//计笲衡
+{
+	double calculate(double x,int y)
+	{
+		if (y==0)							//璝y0
+		{
+			return 1;						//玥x^y=1	
+		}
+	
+		if (y%2==0)							//璝Ωよ计(y)案计
+		{
+			return (calculate(x,y/2)*calculate(x,y/2));		//㊣
+		}
+		return (x*calculate(x,y/2)*calculate(x,y/2));			//Ωよ计计
+		//return x*calculate(x,y-1);
+	}
+}
+public class recursive 						//患癹
+{
+	public static void main(String args[])
+	{
+		exponential r=new exponential();
+		
+		Scanner sc=new Scanner(System.in);
+		System.out.println("叫块繦種x,y(盢穦璸衡xyΩよ):");
+		double x=sc.nextDouble();
+		int y=sc.nextInt();
+		if (y>=0)
+		{
+			System.out.println(x+""+y+"Ωよ:"+r.calculate(x,y));
+		}
+		else
+		{
+			System.out.println(x+""+y+"Ωよ:"+r.calculate(1/x,-y));
+		}
+	}
+}

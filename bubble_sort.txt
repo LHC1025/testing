@@ -1,0 +1,32 @@
+import java.util.*;
+public class bubble_sort
+{
+	public static void main(String args[])
+	{
+		int[] x=new int[10];
+		Scanner sc=new Scanner(System.in);
+		System.out.println("叫块10舱计:");
+		for (int i=0;i<x.length;i++)
+		{
+			x[i]=sc.nextInt();
+		}
+		System.out.println("Bubble sorting...");
+		for (int j=0;j<x.length-1;j++)
+		{
+			for (int k=0;k<x.length-1;k++)	//秈︽ゑ蠢传(ㄢㄢゑ璶ゑ耕(羆计-1Ω)碞)
+			{
+				if (x[k+1]<x[k])			//璝计ゑ玡计
+				{
+					int temp=x[k];			//跑计temp材k计
+					x[k]=x[k+1];			//р材k计竚传Θ计(р材k计奔Θゑ耕ê计(材k+1计))
+					x[k+1]=temp;			//р跑计temp竚传Θ计(р材k+1计竚传Θセ材k计)
+				}
+			}
+		}
+		System.out.print("逼挡狦:");
+		for (int y:x)
+		{
+			System.out.print(y+"\t");
+		}
+	}
+}

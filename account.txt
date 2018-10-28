@@ -1,0 +1,64 @@
+import java.util.*;
+public class account
+{
+	public static void main(String args[])
+	{
+		String i;
+		String j;
+		String[][] x=new String[2][3];
+		x[0][0]="Bob";
+		x[0][1]="Mary";
+		x[0][2]="Tom";
+		x[1][0]="abc123";
+		x[1][1]="123456";
+		x[1][2]="456abc";
+		
+		System.out.println("請輸入帳號:");
+		Scanner sc=new Scanner(System.in);
+		i=sc.next();
+		if(i.equals(x[0][0]))
+		{
+			System.out.println("請輸入密碼:");
+			j=sc.next();
+			if(j.equals(x[1][0]))
+			{
+				System.out.println("登入成功!");
+			}
+			else
+			{
+				System.out.println("登入失敗!");
+			}
+		}
+		else if(i.equals(x[0][1]))
+		{
+			System.out.println("請輸入密碼:");
+			j=sc.next();
+			if(j.equals(x[1][1]))
+			{
+				System.out.println("登入成功!");
+			}
+			else
+			{
+				System.out.println("登入失敗!");
+			}
+		}
+		else if(i.equals(x[0][2]))
+		{
+			System.out.println("請輸入密碼:");
+			Scanner s=new Scanner(System.in);
+			j=sc.next();
+			if(j.equals(x[1][2]))
+			{
+				System.out.println("登入成功!");
+			}
+			else
+			{
+				System.out.println("登入失敗!");
+			}
+		}
+		else
+		{
+			System.out.println("登入失敗!");
+		}	
+	}
+}

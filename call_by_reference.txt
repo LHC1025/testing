@@ -1,0 +1,55 @@
+class TestA
+{
+	int x=3;
+	double y=3.14;
+	String z="Do me trade?";
+	
+	void show()
+	{
+		System.out.println("x="+x);
+		System.out.println("y="+y);
+		System.out.println("z="+z);
+	}
+}
+
+class TestB
+{
+	void change_TestA(TestA t,int newX,double newY,String newZ)
+	{
+		System.out.println("\nCall by reference...");
+		System.out.println("Changing x, y, z...");
+		t.x=newX;
+		t.y=newY;
+		t.z=newZ;
+	}
+}
+
+class TestC
+{
+	void change(TestA k)
+	{
+		System.out.println("\nCall by reference...");
+		System.out.println("Changing x, y, z...");
+		k.x=666;
+		k.y=0.87;
+		k.z="Everybody knows that the face is the place";
+	}
+}
+
+public class call_by_reference
+{
+	//call by reference:用產生出來的a套入TestB及TestC，TestB及TestC呼叫了TestA並修改了xyz三個值
+
+	public static void main(String args[])
+	{
+		TestA a=new TestA();
+		TestB b=new TestB();
+		TestC c=new TestC();
+		
+		a.show();
+		b.change_TestA(a, 30,3.14159,"Me go face?");
+		a.show();
+		c.change(a);
+		a.show();
+	}
+}

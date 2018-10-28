@@ -1,0 +1,54 @@
+import java.util.*;
+class IcCard
+{
+	String id;
+	int money;
+	void show()		//method
+	{
+		System.out.println("卡號:"+id);
+		System.out.println("餘額:"+money);
+	}
+	void adder(int add)		//method
+	{
+		if (add>=0 && add<=10000)
+		{
+			money+=add;
+			System.out.println("加值成功!");
+			System.out.println("餘額:"+money);
+		}
+		else
+		{
+			System.out.println("加值失敗!");
+		}
+	}
+}
+public class bank
+{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		IcCard myCard = new IcCard();	//類別生物件=new 類別名稱()
+		
+		myCard.id="B0321107";
+		myCard.money=1000000;
+		
+		myCard.show();
+		
+		System.out.println("是否要加值?");
+		String i=sc.next();
+		if(i.equals("是"))
+		{
+			System.out.println("請輸入加值金額(最多10000元):");
+			int j=sc.nextInt();
+			myCard.adder(j);	//呼叫method
+		}
+		else if(i.equals("否"))
+		{
+			System.out.println("謝謝惠顧!");
+		}
+		else
+		{
+			System.out.println("辨識失敗!");
+		}
+	}
+}
